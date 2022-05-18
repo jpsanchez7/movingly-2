@@ -1,0 +1,52 @@
+<p>
+  <strong>Weekday:</strong>
+  <%= @turn.weekday %>
+</p>
+
+<p>
+  <strong>Departure address:</strong>
+  <%= @turn.departure_address %>
+</p>
+
+<p>
+  <strong>Departure time:</strong>
+  <%= @turn.departure_time.to_s(:time) %>
+</p>
+
+<p>
+  <strong>Turn type:</strong>
+  <%= @turn.turn_type %>
+</p>
+
+<p>
+  <strong>People limit:</strong>
+  <%= @turn.people_limit %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @turn.address %>
+</p>
+
+<p>
+  <strong>Driver:</strong>
+
+  <% if current_user != @turn.user %>
+    <%= link_to @turn.user.email, new_review_path(@turn.user) %>
+  <% else %>
+    <%= @turn.user.email %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Passengers:</strong>
+  <%= @passengers.join(', ') %>
+</p>
+
+<% if current_user == @turn.user %>
+  <%= link_to 'Edit', edit_turn_path(@turn) %> |
+<% else %>
+  <%= link_to 'Send Request', new_request_path(@turn) %> |
+<% end %>
+
+<%= link_to 'Back', turns_path %>

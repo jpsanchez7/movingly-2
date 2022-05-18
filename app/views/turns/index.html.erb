@@ -1,0 +1,38 @@
+<h1>Turns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Weekday</th>
+      <th>Departure address</th>
+      <th>Departure time</th>
+      <th>Turn type</th>
+      <th>People limit</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @turns.each do |turn| %>
+      <tr>
+        <td><%= turn.weekday %></td>
+        <td><%= turn.departure_address %></td>
+        <td><%= turn.departure_time.to_s(:time) %></td>
+        <td><%= turn.turn_type %></td>
+        <td><%= turn.people_limit %></td>
+        <td><%= turn.address %></td>
+        <td><%= link_to 'Show', turn %></td>
+        
+        <% if current_user == turn.user %>
+          <td><%= link_to 'Edit', edit_turn_path(turn) %></td>
+          <td><%= link_to 'Destroy', turn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Turn', new_turn_path %>

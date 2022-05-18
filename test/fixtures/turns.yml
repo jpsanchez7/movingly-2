@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weekday: MyString
+  departure_address: MyString
+  departure_time: 2022-05-17 23:34:05
+  turn_type: MyString
+  people_limit: 1
+  address: MyString
+
+two:
+  weekday: MyString
+  departure_address: MyString
+  departure_time: 2022-05-17 23:34:05
+  turn_type: MyString
+  people_limit: 1
+  address: MyString

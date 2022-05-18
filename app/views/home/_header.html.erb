@@ -1,0 +1,14 @@
+<%= link_to 'Movingly App', root_path %>
+<%= link_to 'About us', home_about_path %>
+<%= link_to 'Turns', turns_path %>
+<%= link_to 'Requests', requests_path %>
+<%= link_to 'Reviews', reviews_path %>
+
+<% if user_signed_in? %>
+  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+  <%= link_to 'Edit Profile', edit_user_registration_path %>
+
+<% else %>
+  <%= link_to 'Sign Up', new_user_registration_path %>
+  <%= link_to 'Sign In', new_user_session_path %>
+<% end %>

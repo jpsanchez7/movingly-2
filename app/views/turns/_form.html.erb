@@ -1,0 +1,47 @@
+<%= form_with(model: turn, local: true) do |form| %>
+  <% if turn.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(turn.errors.count, "error") %> prohibited this turn from being saved:</h2>
+
+      <ul>
+        <% turn.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :weekday %>
+    <%= form.text_field :weekday %>
+  </div>
+
+  <div class="field">
+    <%= form.label :departure_address %>
+    <%= form.text_field :departure_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :departure_time %>
+    <%= form.time_select :departure_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :turn_type %>
+    <%= form.text_field :turn_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :people_limit %>
+    <%= form.number_field :people_limit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
