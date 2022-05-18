@@ -31,8 +31,10 @@
 <p>
   <strong>Driver:</strong>
 
-  <% if current_user != @turn.user %>
+  <% if current_user != @turn.user and user_signed_in? %>
     <%= link_to @turn.user.email, new_review_path(@turn.user) %>
+  <% elsif current_user != @turn.user and not user_signed_in? %>
+    <%= link_to @turn.user.email, new_user_session_path %>
   <% else %>
     <%= @turn.user.email %>
   <% end %>
@@ -45,8 +47,10 @@
 
 <% if current_user == @turn.user %>
   <%= link_to 'Edit', edit_turn_path(@turn) %> |
-<% else %>
+<% elsif user_signed_in? %>
   <%= link_to 'Send Request', new_request_path(@turn) %> |
+<% else %>
+  <%= link_to 'Send Request', new_user_session_path %> |
 <% end %>
 
 <%= link_to 'Back', turns_path %>

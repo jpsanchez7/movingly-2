@@ -35,4 +35,8 @@
 
 <br>
 
-<%= link_to 'New Turn', new_turn_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Turn', new_turn_path %>
+<% else %>
+  <%= link_to 'New Turn', new_user_session_path %>
+<% end %>
